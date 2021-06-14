@@ -1,24 +1,25 @@
-<img src="./src/assets/circles.png" height="200px" align="right"/>
+<img src="./src/assets/circles.png" height="250px" align="right"/>
 
-# BOOK STORE
+<h1 align="center">BOOK STORE USING REACTJS </h1>
 
-## [Live App Demo](https://akshatbookstore.netlify.app/)
 
-## BOOK-IT Description
+# BOOK-IT Description
     Book-IT is an online React web application where the customer can purchase books online.
     Through this book store the users can search for a book by its title and
     later can add to the shopping cart and finally purchase using credit card transaction.
+    
+ ###   [Live App Demo](https://akshatbookstore.netlify.app/)
+ 
+ 
+ ![Alt text](https://github.com/Akshatjalan/Book-store-Reactjs/blob/main/src/assets/Web.jpg?raw=true "Main Page")
 
-## Application Info
-    Build with React, Javascript, HTML, CSS, CommerceJS for backend and Stripe for temporary credit card payment.
+# Tools Used
 
-## Application Screenshots
-![Alt text](./src/assets/Screenshot1.png?raw=true "Main Page")
+- Build with `React`, `Javascript`, `HTML`, `CSS`.
+- `CommerceJS` provides Backend eCommerce APIs for any frontend framework
+- Stripe is used as a suite of payment APIs that powers commerce and provides temporary credit card for payment.
 
-![Alt text](./src/assets/Screenshot2.png?raw=true "Shopping Cart")
-
-
-## Installation 
+# Installation 
 
 ### `npm start`
 
@@ -41,3 +42,27 @@ The build is minified and the filenames include the hashes.<br>
 The app is ready to be deployed!
 
 See the section about [deployment](#deployment) for more information.
+
+## Contact 
+ <h3 align="center">
+  <code> Akshat Jalan </code>
+</h3>
+  <p align="center"> 
+
+  <a href="https://github.com/Akshatjalan">
+    <img src="https://github.com/Akshatjalan/akshat/blob/master/Color/Github.svg" width="30" height="30" hspace="20">
+  </a>
+
+  <a href="https://www.linkedin.com/in/akshat-jalan/">
+    <img src="https://github.com/Akshatjalan/akshat/blob/master/Color/LinkedIN.svg" width="30" height="30" hspace="20">
+  </a>
+
+  <a href="https://www.instagram.com/akshatxjalan/">
+    <img src="https://github.com/Akshatjalan/akshat/blob/master/Color/Instagram.svg" width="30" height="30" hspace="20">
+  </a>
+    <a href="mailto:jalanakshat2@gmail.com">
+    <img src="https://github.com/Akshatjalan/akshat/blob/master/Color/Gmail.svg"  width="30" height="30" hspace="20">
+  </a>
+
+</p>
+
