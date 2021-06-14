@@ -1,0 +1,52 @@
+.MuiContainer-root.product-view {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 150px 0 100px 0;
+  }
+  
+  .product-view .image-wrapper img {
+    width: 100%;
+  }
+  
+  .product-view .text {
+    color: #000;
+  }
+  
+  .product-view .text h2 {
+    color: #000;
+    font-size: 30px;
+  }
+  
+  .product-view .text h3 {color: #000;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  
+  .MuiContainer-root.product-view .custom-button {
+    color: white;
+    background-color: #1C2331;
+  }
+  
+  .MuiContainer-root.product-view .custom-button:hover {
+    color: white;
+    background-color: #2a344a;
+  }
+  
+  .MuiContainer-root.product-view .custom-button svg {
+    margin-right: 10px;
+  }
+  
+  
+  .product-view .MuiGrid-root .MuiGrid-item {
+    padding: 5px 15px;
+  }
+  
+  @media (min-width: 960px) {
+    .MuiContainer-root.product-view {
+      height: 88vh;
+      margin: 40px 0 0;
+    }
+  }
