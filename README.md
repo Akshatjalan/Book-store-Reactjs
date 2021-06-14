@@ -1,11 +1,9 @@
+<img src="./src/assets/circles.png" height="200px" align="right"/>
 # BOOK STORE
 ### [Live App Demo](https://akshatbookstore.netlify.app/)
 
-## BOOK-IT
-<img src="./src/assets/circles.png" height="200px" align="right"/>
-
-## Description
-    `Book-IT` is an online React web application where the customer can purchase books online.
+## BOOK-IT Description
+    Book-IT is an online React web application where the customer can purchase books online.
     Through this book store the users can search for a book by its title and
     later can add to the shopping cart and finally purchase using credit card transaction.
 
@@ -14,6 +12,7 @@
 
 ## Application Screenshots
 ![Alt text](./src/assets/Screenshot1.png?raw=true "Main Page")
+
 ![Alt text](./src/assets/Screenshot2.png?raw=true "Shopping Cart")
 
 
