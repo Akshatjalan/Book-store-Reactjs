@@ -8,7 +8,7 @@
     Through this book store the users can search for a book by its title and
     later can add to the shopping cart and finally purchase using credit card transaction.
     
- ###   [Live App Demo](https://akshatbookstore.netlify.app/)
+ ##   [Live App Demo](https://akshatbookstore.netlify.app/)
  
  
  ![Alt text](https://github.com/Akshatjalan/Book-store-Reactjs/blob/main/src/assets/Web.jpg?raw=true "Main Page")
@@ -17,7 +17,9 @@
 
 - Build with `React`, `Javascript`, `HTML`, `CSS`.
 - `CommerceJS` provides Backend eCommerce APIs for any frontend framework
-- Stripe is used as a suite of payment APIs that powers commerce and provides temporary credit card for payment.
+- `Stripe` is used as a suite of payment APIs that powers commerce and provides temporary credit card for payment.
+- https://commercejs.com/docs/guides/products-react/ Documentation of CommerceJS to fetch APIs
+
 
 # Installation 
 
