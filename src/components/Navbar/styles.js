@@ -19,7 +19,17 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     textDecoration: 'none',
+    '&:hover': {
+      color: '#ffff',
+      boxShadow: 'none',    
+    },
     
+  },
+  cartt : {
+    '&:hover': {
+      color: '#ffff',
+      boxShadow: 'none',    
+    },
   },
   image: {
     marginRight: '10px',
