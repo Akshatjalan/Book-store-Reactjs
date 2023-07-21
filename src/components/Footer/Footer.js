@@ -75,14 +75,6 @@ const Footer = () => {
                 <li className="list-inline-item">
                   <a
                     className="btn-floating btn-sm rgba-white-slight mx-1"
-                    href="https://www.facebook.com/akshat.jalan13/"
-                  >
-                    <i className="fab fa-facebook-f" />
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a
-                    className="btn-floating btn-sm rgba-white-slight mx-1"
                     href="https://www.instagram.com/akshatxjalan/"
                   >
                     <i className="fab fa-instagram" />

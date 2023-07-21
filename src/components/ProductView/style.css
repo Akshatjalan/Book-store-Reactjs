@@ -56,8 +56,8 @@
 }
 
 .d-block {
-  border-radius: 20px;
-  opacity: 80%;
+  height: 50vh;
+  opacity: 90%;
 }
 
 @media (min-width: 960px) {

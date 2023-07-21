@@ -7,7 +7,7 @@ export default makeStyles(() => ({
   },
   media: {
     height: 0,
-    paddingTop: "100%",
+    paddingTop: "105%",
     "&:hover": {
       backgroundColor: "#2a344a",
       boxShadow: "none",
@@ -19,7 +19,7 @@ export default makeStyles(() => ({
   },
   cardContent: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "center",
   },
   button: {
     background: "#1C2331",
