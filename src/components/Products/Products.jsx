@@ -51,9 +51,9 @@ const Products = ({ products, onAddToCart }) => {
               <Grid
                 className={classes.contentFeatured}
                 item
-                xs={12}
-                sm={6}
-                md={4}
+                xs={6}
+                sm={5}
+                md={3}
                 lg={2}
                 id="pro"
               >
