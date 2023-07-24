@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
-  mainPage: { flexGrow: 1 },
+  mainPage: { flexGrow: 1, overflowX: "hidden", overflowY: "hidden" },
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
