@@ -14,7 +14,7 @@ const Products = ({ products, onAddToCart }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <main>
+    <main className={classes.mainPage}>
       <div className={classes.toolbar} />
       <Carousel fade infiniteLoop useKeyboardArrows autoPlay>
         <Carousel.Item>
@@ -38,9 +38,35 @@ const Products = ({ products, onAddToCart }) => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      <h3 className={classes.contentHeader}>FEATURED</h3>
+      <Grid
+        className={classes.contentFeatured}
+        container
+        justify="center"
+        spacing={1}
+      >
+        {products.map((product) => (
+          <>
+            {product.categories.length > 0 ? (
+              <Grid
+                className={classes.contentFeatured}
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                lg={2}
+                id="pro"
+              >
+                <Product product={product} onAddToCart={onAddToCart} />
+              </Grid>
+            ) : (
+              ""
+            )}
+          </>
+        ))}
+      </Grid>
 
       <Grid className={classes.content} container justify="center" spacing={5}>
-        {/* <h2>Featured Books</h2> */}
         {products
           .filter((product) => {
             if (searchTerm === "") {
@@ -54,28 +80,17 @@ const Products = ({ products, onAddToCart }) => {
             }
           })
           .map((product) => (
-            <>
-              {/* {product.categories.map(
-                (category) =>
-                  category.name === "Featured" && (
-                    <Grid
-                      className={classes.content}
-                      item
-                      xs={12}
-                      sm={6}
-                      md={4}
-                      lg={3}
-                      id="pro"
-                    >
-                      <Product product={product} onAddToCart={onAddToCart} />
-                    </Grid>
-                  )
-              )} */}
-
-              <Grid item key={product.id} xs={12} sm={6} md={4} lg={3} id="pro">
-                <Product product={product} onAddToCart={onAddToCart} />
-              </Grid>
-            </>
+            <Grid
+              className={classes.content}
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              id="pro"
+            >
+              <Product product={product} onAddToCart={onAddToCart} />
+            </Grid>
           ))}
       </Grid>
     </main>

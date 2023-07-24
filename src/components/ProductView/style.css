@@ -60,6 +60,18 @@
   opacity: 90%;
 }
 
+.carousel-control-next {
+  display: none !important;
+}
+
+.carousel-control-prev {
+  display: none !important;
+}
+
+.carousel-indicators .active {
+  display: none !important;
+}
+
 @media (min-width: 960px) {
   .MuiContainer-root.product-view {
     height: 88vh;
