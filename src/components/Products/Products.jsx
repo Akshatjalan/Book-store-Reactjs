@@ -38,33 +38,38 @@ const Products = ({ products, onAddToCart }) => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <h3 className={classes.contentHeader}>FEATURED</h3>
-      <Grid
-        className={classes.contentFeatured}
-        container
-        justify="center"
-        spacing={1}
-      >
-        {products.map((product) => (
-          <>
-            {product.categories.length > 0 ? (
-              <Grid
-                className={classes.contentFeatured}
-                item
-                xs={6}
-                sm={5}
-                md={3}
-                lg={2}
-                id="pro"
-              >
-                <Product product={product} onAddToCart={onAddToCart} />
-              </Grid>
-            ) : (
-              ""
-            )}
-          </>
-        ))}
-      </Grid>
+
+      {searchTerm === "" && (
+        <>
+          <h3 className={classes.contentHeader}>FEATURED</h3>
+          <Grid
+            className={classes.contentFeatured}
+            container
+            justify="center"
+            spacing={1}
+          >
+            {products.map((product) => (
+              <>
+                {product.categories.length > 0 ? (
+                  <Grid
+                    className={classes.contentFeatured}
+                    item
+                    xs={6}
+                    sm={5}
+                    md={3}
+                    lg={2}
+                    id="pro"
+                  >
+                    <Product product={product} onAddToCart={onAddToCart} />
+                  </Grid>
+                ) : (
+                  ""
+                )}
+              </>
+            ))}
+          </Grid>
+        </>
+      )}
 
       <Grid className={classes.content} container justify="center" spacing={5}>
         {products
