@@ -15,7 +15,7 @@
 
 # Tools Used
 
-- Build with `React`, `Javascript`, `HTML`, `CSS`.
+- Build with `ReactJS`, `Javascript`, `HTML`, `CSS`.
 - `CommerceJS` provides Backend eCommerce APIs for any frontend framework
 - `Stripe` is used as a suite of payment APIs that powers commerce and provides temporary credit card for payment.
 - https://commercejs.com/docs/guides/products-react/ Documentation of CommerceJS to fetch APIs
