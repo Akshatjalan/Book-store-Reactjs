@@ -22,7 +22,7 @@
 }
 
 .product-view .text h2 {
-  color: #1c2331;
+  color: #001524;
   font-size: 35px;
   padding-bottom: 30px;
 }
@@ -36,7 +36,7 @@
 
 .MuiContainer-root.product-view .custom-button {
   color: white;
-  background-color: #1c2331;
+  background-color: #001524;
   display: flex;
   justify-content: center;
   align-items: center;

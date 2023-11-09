@@ -22,7 +22,7 @@ export default makeStyles(() => ({
     justifyContent: "center",
   },
   button: {
-    background: "#1C2331",
+    background: "#001524",
     color: "white",
     width: "100%",
     height: "40px",
