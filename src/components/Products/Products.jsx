@@ -8,6 +8,7 @@ import logo1 from "../../assets/Bookshop.gif";
 import "../ProductView/style.css";
 
 const Products = ({ products, onAddToCart }) => {
+  Add;
   const classes = useStyles();
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,9 +17,9 @@ const Products = ({ products, onAddToCart }) => {
     <main className={classes.mainPage}>
       <div className={classes.toolbar} />
       <div className={classes.hero}>
-        <img src={logo1} height="720px" />
+        <img className={classes.heroImg} src={logo1} height="720px" />
 
-        <div>
+        <div className={classes.heroCont}>
           <h1 className={classes.heroHeader}>
             Discover Your Next Favorite Book Here.
           </h1>
