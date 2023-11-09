@@ -8,7 +8,6 @@ import logo1 from "../../assets/Bookshop.gif";
 import "../ProductView/style.css";
 
 const Products = ({ products, onAddToCart }) => {
-  Add;
   const classes = useStyles();
 
   const [searchTerm, setSearchTerm] = useState("");
