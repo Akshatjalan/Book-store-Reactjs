@@ -3,9 +3,8 @@ import { Grid, InputAdornment, Input } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Product from "./Product/Product.js";
 import useStyles from "./styles";
-import Carousel from "react-bootstrap/Carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import logo1 from "../../assets/herologo.png";
+import logo1 from "../../assets/Bookshop.gif";
 import "../ProductView/style.css";
 
 const Products = ({ products, onAddToCart }) => {
@@ -16,12 +15,14 @@ const Products = ({ products, onAddToCart }) => {
   return (
     <main className={classes.mainPage}>
       <div className={classes.toolbar} />
-      {/* <div className={classes.hero}>
+      <div className={classes.hero}>
+        <img src={logo1} height="720px" />
+
         <div>
           <h1 className={classes.heroHeader}>
-            Discover Your Next Favorite Book Here
+            Discover Your Next Favorite Book Here.
           </h1>
-          <h3>
+          <h3 className={classes.heroDesc}>
             Explore our curated collection of new and popular books to find your
             next literary adventure.
           </h3>
@@ -41,8 +42,8 @@ const Products = ({ products, onAddToCart }) => {
             />
           </div>
         </div>
-        <img src={logo1} height="800px" />
-      </div> */}
+        {/* <img src={logo1} height="800px" /> */}
+      </div>
 
       {searchTerm === "" && (
         <>
@@ -77,7 +78,7 @@ const Products = ({ products, onAddToCart }) => {
       )}
 
       <div>
-        <h1 className={classes.bookstHeader}>Discover Books</h1>
+        <h1 className={classes.booksHeader}>Discover Books</h1>
         <h3 className={classes.booksDesc}>
           Explore our comprehensive collection of books.
         </h3>

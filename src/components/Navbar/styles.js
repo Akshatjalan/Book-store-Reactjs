@@ -17,6 +17,9 @@ export default makeStyles((theme) => ({
     flexGrow: 1,
     alignItems: "center",
     display: "flex",
+    fontFamily: "Raleway",
+    fontWeight: 600,
+    letterSpacing: 1,
     textDecoration: "none",
     "&:hover": {
       color: "#ffff",
