@@ -41,7 +41,7 @@ export default makeStyles((theme) => ({
   contentHeader: {
     textAlign: "center",
     color: "#001524",
-    fontSize: 35,
+    fontSize: 40,
     fontFamily: "Raleway",
     fontWeight: "bolder",
     paddingTop: theme.spacing(5),
@@ -50,7 +50,6 @@ export default makeStyles((theme) => ({
   },
   contentFeatured: {
     gap: 15,
-    // backgroundColor: "#2a344a",
     padding: theme.spacing(5),
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(7),
@@ -74,7 +73,7 @@ export default makeStyles((theme) => ({
   booksHeader: {
     textAlign: "center",
     color: "#001524",
-    fontSize: 35,
+    fontSize: 40,
     fontFamily: "Raleway",
     fontWeight: "bolder",
     paddingTop: theme.spacing(10),
@@ -119,6 +118,9 @@ export default makeStyles((theme) => ({
     },
     heroImg: {
       height: 480,
+    },
+    content: {
+      padding: 8,
     },
   },
   "@media (max-width: 700px)": {
@@ -173,6 +175,15 @@ export default makeStyles((theme) => ({
     },
     heroImg: {
       height: 280,
+    },
+    content: {
+      padding: 0,
+    },
+    contentFeatured: {
+      gap: 0,
+      padding: theme.spacing(0),
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(7),
     },
   },
 }));

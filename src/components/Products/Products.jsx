@@ -42,17 +42,18 @@ const Products = ({ products, onAddToCart }) => {
             />
           </div>
         </div>
-        {/* <img src={logo1} height="800px" /> */}
       </div>
 
       {searchTerm === "" && (
         <>
-          <h3 className={classes.contentHeader}>Featured Deals</h3>
+          <h3 className={classes.contentHeader}>
+            Featured<span style={{ color: "#f1361d" }}>Deals</span>
+          </h3>
           <Grid
             className={classes.contentFeatured}
             container
             justify="center"
-            spacing={1}
+            spacing={2}
           >
             {products.map((product) => (
               <>
@@ -60,7 +61,7 @@ const Products = ({ products, onAddToCart }) => {
                   <Grid
                     className={classes.contentFeatured}
                     item
-                    xs={6}
+                    xs={8}
                     sm={5}
                     md={3}
                     lg={2}
@@ -78,7 +79,9 @@ const Products = ({ products, onAddToCart }) => {
       )}
 
       <div>
-        <h1 className={classes.booksHeader}>Discover Books</h1>
+        <h1 className={classes.booksHeader}>
+          Discover<span style={{ color: "#f1361d" }}>Books</span>
+        </h1>
         <h3 className={classes.booksDesc}>
           Explore our comprehensive collection of books.
         </h3>
@@ -86,7 +89,7 @@ const Products = ({ products, onAddToCart }) => {
           className={classes.content}
           container
           justify="center"
-          spacing={5}
+          spacing={2}
         >
           {products
             .filter((product) => {
@@ -104,7 +107,7 @@ const Products = ({ products, onAddToCart }) => {
               <Grid
                 className={classes.content}
                 item
-                xs={12}
+                xs={8}
                 sm={6}
                 md={4}
                 lg={3}
