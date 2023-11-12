@@ -24,6 +24,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.1",
     "react-stripe-elements": "^6.1.2",
+    "scheduler": "^0.23.0",
     "semantic-ui-react": "^2.0.1"
   },
   "scripts": {
