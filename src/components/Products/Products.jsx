@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Grid, InputAdornment, Input } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Product from "./Product/Product.js";
@@ -12,6 +12,13 @@ const Products = ({ products, onAddToCart }) => {
 
   const [searchTerm, setSearchTerm] = useState("");
 
+  const sectionRef = useRef(null);
+
+  const handleInputClick = () => {
+    // Scrolls to the section when the input is clicked
+    sectionRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <main className={classes.mainPage}>
       <div className={classes.toolbar} />
@@ -22,7 +29,7 @@ const Products = ({ products, onAddToCart }) => {
           <h1 className={classes.heroHeader}>
             Discover Your Next Favorite Book Here.
           </h1>
-          <h3 className={classes.heroDesc}>
+          <h3 className={classes.heroDesc} ref={sectionRef}>
             Explore our curated collection of new and popular books to find your
             next literary adventure.
           </h3>
@@ -31,6 +38,7 @@ const Products = ({ products, onAddToCart }) => {
               className={classes.searchb}
               type="text"
               placeholder="Which book are you looking for?"
+              onClick={handleInputClick}
               onChange={(event) => {
                 setSearchTerm(event.target.value);
               }}
@@ -79,12 +87,16 @@ const Products = ({ products, onAddToCart }) => {
       )}
 
       <div>
-        <h1 className={classes.booksHeader}>
-          Discover<span style={{ color: "#f1361d" }}>Books</span>
-        </h1>
-        <h3 className={classes.booksDesc}>
-          Explore our comprehensive collection of books.
-        </h3>
+        {searchTerm === "" && (
+          <>
+            <h1 className={classes.booksHeader}>
+              Discover<span style={{ color: "#f1361d" }}>Books</span>
+            </h1>
+            <h3 className={classes.booksDesc}>
+              Explore our comprehensive collection of books.
+            </h3>
+          </>
+        )}
         <Grid
           className={classes.content}
           container
