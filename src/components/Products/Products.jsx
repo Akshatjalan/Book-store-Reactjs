@@ -5,6 +5,8 @@ import Product from "./Product/Product.js";
 import useStyles from "./styles";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import logo1 from "../../assets/Bookshop.gif";
+import scrollImg from "../../assets/scroll.gif";
+
 import "../ProductView/style.css";
 
 const Products = ({ products, onAddToCart }) => {
@@ -22,6 +24,7 @@ const Products = ({ products, onAddToCart }) => {
   return (
     <main className={classes.mainPage}>
       <div className={classes.toolbar} />
+      <img src={scrollImg} className={classes.scrollImg} />
       <div className={classes.hero}>
         <img className={classes.heroImg} src={logo1} height="720px" />
 
@@ -97,6 +100,23 @@ const Products = ({ products, onAddToCart }) => {
             </h3>
           </>
         )}
+        <div className={classes.mobileSearch}>
+          <div className={classes.mobSearchs}>
+            <Input
+              className={classes.mobSearchb}
+              type="text"
+              placeholder="Search for books"
+              onChange={(event) => {
+                setSearchTerm(event.target.value);
+              }}
+              startAdornment={
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              }
+            />
+          </div>
+        </div>
         <Grid
           className={classes.content}
           container

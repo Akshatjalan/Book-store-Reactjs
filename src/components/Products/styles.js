@@ -85,6 +85,15 @@ export default makeStyles((theme) => ({
     paddingBottom: theme.spacing(2),
     fontFamily: "Raleway",
   },
+  scrollImg: {
+    position: "absolute",
+    right: 0,
+    bottom: 40,
+    height: 100,
+  },
+  mobileSearch: {
+    display: "none",
+  },
   "@media (max-width: 1600px)": {
     hero: {
       flexDirection: "column",
@@ -139,10 +148,10 @@ export default makeStyles((theme) => ({
     heroHeader: {
       textAlign: "center",
       color: "#001524",
-      fontSize: 28,
+      fontSize: 32,
       fontFamily: "Raleway",
       fontWeight: "800",
-      letterSpacing: -2,
+      letterSpacing: -1.2,
       lineHeight: 1,
       wordSpacing: 4,
       width: 332,
@@ -154,7 +163,7 @@ export default makeStyles((theme) => ({
       fontSize: 12,
       fontFamily: "Raleway",
       paddingBottom: 28,
-      width: 332,
+      width: 316,
     },
     contentHeader: {
       fontSize: 28,
@@ -166,12 +175,24 @@ export default makeStyles((theme) => ({
       fontSize: 28,
     },
     searchs: {
+      display: "none",
+    },
+    mobileSearch: {
+      display: "block",
+      padding: 32,
+      paddingTop: 20,
+    },
+    mobSearchs: {
       justifyContent: "center",
       display: "flex",
     },
-    searchb: {
+    mobSearchb: {
+      backgroundColor: "white",
       height: "80%",
-      width: "100%",
+      width: "80%",
+      padding: "12px",
+      borderRadius: "10px",
+      border: "1px solid #001524",
     },
     heroImg: {
       height: 280,
@@ -184,6 +205,15 @@ export default makeStyles((theme) => ({
       padding: theme.spacing(0),
       paddingTop: theme.spacing(4),
       paddingBottom: theme.spacing(7),
+    },
+    scrollImg: {
+      position: "absolute",
+      textAlign: "center",
+      margin: "auto",
+      left: 0,
+      right: 0,
+      bottom: 20,
+      height: 100,
     },
   },
 }));
