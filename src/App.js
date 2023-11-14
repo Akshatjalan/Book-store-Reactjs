@@ -11,10 +11,14 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import loadingImg from "./assets/loader.gif";
+import "./style.css";
 
 const App = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [products, setProducts] = useState([]);
+  const [mangaProducts, setMangaProducts] = useState([]);
+  const [featureProducts, setFeatureProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
@@ -23,6 +27,22 @@ const App = () => {
     const { data } = await commerce.products.list();
 
     setProducts(data);
+  };
+
+  const fetchMangaProducts = async () => {
+    const { data } = await commerce.products.list({
+      category_slug: ["manga"],
+    });
+
+    setMangaProducts(data);
+  };
+
+  const fetchFeatureProducts = async () => {
+    const { data } = await commerce.products.list({
+      category_slug: ["featured"],
+    });
+
+    setFeatureProducts(data);
   };
 
   const fetchCart = async () => {
@@ -77,50 +97,64 @@ const App = () => {
   useEffect(() => {
     fetchProducts();
     fetchCart();
+    fetchMangaProducts();
+    fetchFeatureProducts();
   }, []);
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   return (
     <div>
-      <Router>
-        <div style={{ display: "flex" }}>
-          <CssBaseline />
-          <Navbar
-            totalItems={cart.total_items}
-            handleDrawerToggle={handleDrawerToggle}
-          />
-          <Switch>
-            <Route exact path="/">
-              <Products
-                products={products}
-                onAddToCart={handleAddToCart}
-                handleUpdateCartQty
+      {products.length > 0 &&
+      mangaProducts.length > 0 &&
+      featureProducts.length > 0 ? (
+        <>
+          <Router>
+            <div style={{ display: "flex" }}>
+              <CssBaseline />
+              <Navbar
+                totalItems={cart.total_items}
+                handleDrawerToggle={handleDrawerToggle}
               />
-            </Route>
-            <Route exact path="/cart">
-              <Cart
-                cart={cart}
-                onUpdateCartQty={handleUpdateCartQty}
-                onRemoveFromCart={handleRemoveFromCart}
-                onEmptyCart={handleEmptyCart}
-              />
-            </Route>
-            <Route path="/checkout" exact>
-              <Checkout
-                cart={cart}
-                order={order}
-                onCaptureCheckout={handleCaptureCheckout}
-                error={errorMessage}
-              />
-            </Route>
-            <Route path="/product-view/:id" exact>
-              <ProductView />
-            </Route>
-          </Switch>
+              <Switch>
+                <Route exact path="/">
+                  <Products
+                    products={products}
+                    mangaProducts={mangaProducts}
+                    featureProducts={featureProducts}
+                    onAddToCart={handleAddToCart}
+                    handleUpdateCartQty
+                  />
+                </Route>
+                <Route exact path="/cart">
+                  <Cart
+                    cart={cart}
+                    onUpdateCartQty={handleUpdateCartQty}
+                    onRemoveFromCart={handleRemoveFromCart}
+                    onEmptyCart={handleEmptyCart}
+                  />
+                </Route>
+                <Route path="/checkout" exact>
+                  <Checkout
+                    cart={cart}
+                    order={order}
+                    onCaptureCheckout={handleCaptureCheckout}
+                    error={errorMessage}
+                  />
+                </Route>
+                <Route path="/product-view/:id" exact>
+                  <ProductView />
+                </Route>
+              </Switch>
+            </div>
+          </Router>
+          <Footer />
+        </>
+      ) : (
+        <div className="loader">
+          <img src={loadingImg} alt="Loading" />
         </div>
-      </Router>
-      <Footer />
+      )}
     </div>
   );
 };

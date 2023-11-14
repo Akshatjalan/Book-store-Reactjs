@@ -6,10 +6,15 @@ import useStyles from "./styles";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import logo1 from "../../assets/Bookshop.gif";
 import scrollImg from "../../assets/scroll.gif";
-
 import "../ProductView/style.css";
+import mangaBg from "../../assets/maxresdefault.jpg";
 
-const Products = ({ products, onAddToCart }) => {
+const Products = ({
+  products,
+  onAddToCart,
+  mangaProducts,
+  featureProducts,
+}) => {
   const classes = useStyles();
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -55,38 +60,72 @@ const Products = ({ products, onAddToCart }) => {
         </div>
       </div>
 
+      {/* <div className={classes.buttonSection}>
+        <button
+          className={classes.categoryButton}
+          style={{ backgroundImage: `url(${mangaBg})` }}
+        >
+          Manga
+        </button>
+        <button className={classes.categoryButton}>Manga</button>
+      </div> */}
+
       {searchTerm === "" && (
         <>
-          <h3 className={classes.contentHeader}>
-            Featured<span style={{ color: "#f1361d" }}>Deals</span>
-          </h3>
-          <Grid
-            className={classes.contentFeatured}
-            container
-            justify="center"
-            spacing={2}
-          >
-            {products.map((product) => (
-              <>
-                {/* categories: [{id: "cat_r2LM5QqDr5ZV1g", slug: "featured", name: "Featured"}] */}
-                {product.categories.length > 0 ? (
-                  <Grid
-                    className={classes.contentFeatured}
-                    item
-                    xs={8}
-                    sm={5}
-                    md={3}
-                    lg={2}
-                    id="pro"
-                  >
-                    <Product product={product} onAddToCart={onAddToCart} />
-                  </Grid>
-                ) : (
-                  ""
-                )}
-              </>
-            ))}
-          </Grid>
+          <div>
+            <h3 className={classes.contentHeader}>
+              Best <span style={{ color: "#f1361d" }}>Sellers</span>
+            </h3>
+            <Grid
+              className={classes.contentFeatured}
+              container
+              justify="center"
+              spacing={1}
+            >
+              {featureProducts.map((product) => (
+                <Grid
+                  className={classes.contentFeatured}
+                  item
+                  xs={6}
+                  sm={5}
+                  md={3}
+                  lg={2}
+                  id="pro"
+                >
+                  <Product product={product} onAddToCart={onAddToCart} />
+                </Grid>
+              ))}
+            </Grid>
+          </div>
+          <div>
+            <h3 className={classes.contentHeader}>
+              Anime <span style={{ color: "#f1361d" }}>Manga</span>
+            </h3>
+            {/* <h3 className={classes.booksDesc}>
+            Browse our handpicked selection of manga series and find your next
+            favorite read.
+          </h3> */}
+            <Grid
+              className={classes.contentFeatured}
+              container
+              justify="center"
+              spacing={1}
+            >
+              {mangaProducts.map((product) => (
+                <Grid
+                  className={classes.contentFeatured}
+                  item
+                  xs={6}
+                  sm={5}
+                  md={3}
+                  lg={2}
+                  id="pro"
+                >
+                  <Product product={product} onAddToCart={onAddToCart} />
+                </Grid>
+              ))}
+            </Grid>
+          </div>
         </>
       )}
 
@@ -94,7 +133,7 @@ const Products = ({ products, onAddToCart }) => {
         {searchTerm === "" && (
           <>
             <h1 className={classes.booksHeader}>
-              Discover<span style={{ color: "#f1361d" }}>Books</span>
+              Discover <span style={{ color: "#f1361d" }}>Books</span>
             </h1>
             <h3 className={classes.booksDesc}>
               Explore our comprehensive collection of books.
