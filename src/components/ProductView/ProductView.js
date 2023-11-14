@@ -48,7 +48,7 @@ const ProductView = () => {
             Price: <b> {product.price} </b>
           </Typography>
           <br />
-          <Grid container spacing={4}>
+          <Grid container spacing={0}>
             <Grid item xs={12}>
               <Button
                 size="large"
