@@ -48,5 +48,8 @@ export default makeStyles(() => ({
       fontSize: 14,
       textAlign: "center",
     },
+    cardContentPrice: {
+      fontSize: 16,
+    },
   },
 }));
