@@ -68,6 +68,7 @@ const Products = ({ products, onAddToCart }) => {
           >
             {products.map((product) => (
               <>
+                {/* categories: [{id: "cat_r2LM5QqDr5ZV1g", slug: "featured", name: "Featured"}] */}
                 {product.categories.length > 0 ? (
                   <Grid
                     className={classes.contentFeatured}
@@ -139,7 +140,7 @@ const Products = ({ products, onAddToCart }) => {
               <Grid
                 className={classes.content}
                 item
-                xs={8}
+                xs={6}
                 sm={6}
                 md={4}
                 lg={3}

@@ -32,4 +32,21 @@ export default makeStyles(() => ({
       boxShadow: "none",
     },
   },
+  cardContentName: {
+    fontSize: 20,
+    textAlign: "center",
+    margin: "4px !important",
+    fontWeight: 500,
+  },
+  cardContentPrice: {
+    fontSize: 20,
+    color: "#F1361D",
+    margin: "0 !important",
+  },
+  "@media (max-width: 700px)": {
+    cardContentName: {
+      fontSize: 14,
+      textAlign: "center",
+    },
+  },
 }));

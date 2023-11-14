@@ -191,14 +191,14 @@ export default makeStyles((theme) => ({
       height: "80%",
       width: "80%",
       padding: "12px",
-      borderRadius: "10px",
+      borderRadius: "5px",
       border: "1px solid #001524",
     },
     heroImg: {
       height: 280,
     },
     content: {
-      padding: 0,
+      padding: 4,
     },
     contentFeatured: {
       gap: 0,
