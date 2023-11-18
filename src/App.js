@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/CheckoutForm/Checkout/Checkout";
 import ProductView from "./components/ProductView/ProductView";
+import Manga from "./components/Manga/Manga";
 import Footer from "./components/Footer/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -96,18 +97,16 @@ const App = () => {
 
   useEffect(() => {
     fetchProducts();
+    fetchFeatureProducts();
     fetchCart();
     fetchMangaProducts();
-    fetchFeatureProducts();
   }, []);
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   return (
     <div>
-      {products.length > 0 &&
-      mangaProducts.length > 0 &&
-      featureProducts.length > 0 ? (
+      {products.length > 0 ? (
         <>
           <Router>
             <div style={{ display: "flex" }}>
@@ -144,6 +143,13 @@ const App = () => {
                 </Route>
                 <Route path="/product-view/:id" exact>
                   <ProductView />
+                </Route>
+                <Route path="/manga" exact>
+                  <Manga
+                    mangaProducts={mangaProducts}
+                    onAddToCart={handleAddToCart}
+                    handleUpdateCartQty
+                  />
                 </Route>
               </Switch>
             </div>

@@ -3,18 +3,13 @@ import { Grid, InputAdornment, Input } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Product from "./Product/Product.js";
 import useStyles from "./styles";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import logo1 from "../../assets/Bookshop.gif";
 import scrollImg from "../../assets/scroll.gif";
 import "../ProductView/style.css";
+import { Link } from "react-router-dom";
 import mangaBg from "../../assets/maxresdefault.jpg";
 
-const Products = ({
-  products,
-  onAddToCart,
-  mangaProducts,
-  featureProducts,
-}) => {
+const Products = ({ products, onAddToCart, featureProducts }) => {
   const classes = useStyles();
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -60,15 +55,16 @@ const Products = ({
         </div>
       </div>
 
-      {/* <div className={classes.buttonSection}>
-        <button
-          className={classes.categoryButton}
-          style={{ backgroundImage: `url(${mangaBg})` }}
-        >
-          Manga
-        </button>
-        <button className={classes.categoryButton}>Manga</button>
-      </div> */}
+      <div className={classes.buttonSection}>
+        <Link to="manga">
+          <button
+            className={classes.categoryButton}
+            style={{ backgroundImage: `url(${mangaBg})` }}
+          >
+            Manga
+          </button>
+        </Link>
+      </div>
 
       {searchTerm === "" && (
         <>
@@ -83,35 +79,6 @@ const Products = ({
               spacing={1}
             >
               {featureProducts.map((product) => (
-                <Grid
-                  className={classes.contentFeatured}
-                  item
-                  xs={6}
-                  sm={5}
-                  md={3}
-                  lg={2}
-                  id="pro"
-                >
-                  <Product product={product} onAddToCart={onAddToCart} />
-                </Grid>
-              ))}
-            </Grid>
-          </div>
-          <div>
-            <h3 className={classes.contentHeader}>
-              Anime <span style={{ color: "#f1361d" }}>Manga</span>
-            </h3>
-            {/* <h3 className={classes.booksDesc}>
-            Browse our handpicked selection of manga series and find your next
-            favorite read.
-          </h3> */}
-            <Grid
-              className={classes.contentFeatured}
-              container
-              justify="center"
-              spacing={1}
-            >
-              {mangaProducts.map((product) => (
                 <Grid
                   className={classes.contentFeatured}
                   item
