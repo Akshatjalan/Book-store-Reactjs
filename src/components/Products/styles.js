@@ -59,6 +59,13 @@ export default makeStyles((theme) => ({
     paddingBottom: theme.spacing(10),
     backgroundColor: "#001524",
   },
+  categoryFeatured: {
+    gap: 15,
+    padding: theme.spacing(5),
+    paddingTop: theme.spacing(6),
+    paddingBottom: theme.spacing(10),
+    backgroundColor: "#FFF",
+  },
 
   carouselSection: {
     display: "none",
@@ -266,6 +273,12 @@ export default makeStyles((theme) => ({
       padding: 4,
     },
     contentFeatured: {
+      gap: 0,
+      padding: theme.spacing(0),
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(7),
+    },
+    categoryFeatured: {
       gap: 0,
       padding: theme.spacing(0),
       paddingTop: theme.spacing(4),

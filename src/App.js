@@ -14,11 +14,15 @@ import "mdbreact/dist/css/mdb.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import loadingImg from "./assets/loader.gif";
 import "./style.css";
+import Fiction from "./components/Fiction/Fiction";
+import Biography from "./components/Bio/Biography";
 
 const App = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [products, setProducts] = useState([]);
   const [mangaProducts, setMangaProducts] = useState([]);
+  const [fictionProducts, setFictionProducts] = useState([]);
+  const [bioProducts, setBioProducts] = useState([]);
   const [featureProducts, setFeatureProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
@@ -44,6 +48,22 @@ const App = () => {
     });
 
     setFeatureProducts(data);
+  };
+
+  const fetchFictionProducts = async () => {
+    const { data } = await commerce.products.list({
+      category_slug: ["fiction"],
+    });
+
+    setFictionProducts(data);
+  };
+
+  const fetchBioProducts = async () => {
+    const { data } = await commerce.products.list({
+      category_slug: ["biography"],
+    });
+
+    setBioProducts(data);
   };
 
   const fetchCart = async () => {
@@ -100,6 +120,8 @@ const App = () => {
     fetchFeatureProducts();
     fetchCart();
     fetchMangaProducts();
+    fetchFictionProducts();
+    fetchBioProducts();
   }, []);
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
@@ -146,6 +168,20 @@ const App = () => {
                 <Route path="/manga" exact>
                   <Manga
                     mangaProducts={mangaProducts}
+                    onAddToCart={handleAddToCart}
+                    handleUpdateCartQty
+                  />
+                </Route>
+                <Route path="/fiction" exact>
+                  <Fiction
+                    fictionProducts={fictionProducts}
+                    onAddToCart={handleAddToCart}
+                    handleUpdateCartQty
+                  />
+                </Route>
+                <Route path="/biography" exact>
+                  <Biography
+                    bioProducts={bioProducts}
                     onAddToCart={handleAddToCart}
                     handleUpdateCartQty
                   />

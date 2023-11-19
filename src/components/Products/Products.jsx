@@ -73,7 +73,7 @@ const Products = ({ products, onAddToCart, featureProducts }) => {
             <div className={classes.categoryName}>Manga</div>
           </div>
           <div>
-            <Link to="manga">
+            <Link to="biography">
               <button
                 className={classes.categoryButton}
                 style={{ backgroundImage: `url(${bioBg})` }}
@@ -82,7 +82,7 @@ const Products = ({ products, onAddToCart, featureProducts }) => {
             <div className={classes.categoryName}>Biography</div>
           </div>
           <div>
-            <Link to="manga">
+            <Link to="fiction">
               <button
                 className={classes.categoryButton}
                 style={{ backgroundImage: `url(${fictionBg})` }}
@@ -111,7 +111,7 @@ const Products = ({ products, onAddToCart, featureProducts }) => {
             <div className={classes.categoryName}>Manga</div>
           </div>
           <div>
-            <Link to="manga">
+            <Link to="biography">
               <button
                 className={classes.categoryButton}
                 style={{ backgroundImage: `url(${bioBg})` }}
@@ -120,7 +120,7 @@ const Products = ({ products, onAddToCart, featureProducts }) => {
             <div className={classes.categoryName}>Biography</div>
           </div>
           <div>
-            <Link to="manga">
+            <Link to="fiction">
               <button
                 className={classes.categoryButton}
                 style={{ backgroundImage: `url(${fictionBg})` }}
