@@ -119,7 +119,6 @@ const App = () => {
                 <Route exact path="/">
                   <Products
                     products={products}
-                    mangaProducts={mangaProducts}
                     featureProducts={featureProducts}
                     onAddToCart={handleAddToCart}
                     handleUpdateCartQty

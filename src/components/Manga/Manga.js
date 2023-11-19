@@ -10,45 +10,41 @@ const Manga = ({ onAddToCart, mangaProducts }) => {
 
   return (
     <>
-      {mangaProducts.length > 0 ? (
-        <main className={classes.mainPage}>
-          <div className={classes.toolbar} />
+      <main className={classes.mainPage}>
+        <div className={classes.toolbar} />
 
-          <>
-            <div>
-              <h3 className={classes.contentHeader}>
-                Anime <span style={{ color: "#f1361d" }}>Manga</span>
-              </h3>
-              {/* <h3 className={classes.booksDesc}>
+        <>
+          <div>
+            <h3 className={classes.contentHeader}>
+              Anime <span style={{ color: "#f1361d" }}>Manga</span>
+            </h3>
+            {/* <h3 className={classes.booksDesc}>
             Browse our handpicked selection of manga series and find your next
             favorite read.
           </h3> */}
-              <Grid
-                className={classes.contentFeatured}
-                container
-                justify="center"
-                spacing={1}
-              >
-                {mangaProducts.map((product) => (
-                  <Grid
-                    className={classes.contentFeatured}
-                    item
-                    xs={6}
-                    sm={5}
-                    md={3}
-                    lg={2}
-                    id="pro"
-                  >
-                    <Product product={product} onAddToCart={onAddToCart} />
-                  </Grid>
-                ))}
-              </Grid>
-            </div>
-          </>
-        </main>
-      ) : (
-        "laodfing"
-      )}
+            <Grid
+              className={classes.contentFeatured}
+              container
+              justify="center"
+              spacing={1}
+            >
+              {mangaProducts.map((product) => (
+                <Grid
+                  className={classes.contentFeatured}
+                  item
+                  xs={6}
+                  sm={5}
+                  md={3}
+                  lg={2}
+                  id="pro"
+                >
+                  <Product product={product} onAddToCart={onAddToCart} />
+                </Grid>
+              ))}
+            </Grid>
+          </div>
+        </>
+      </main>
     </>
   );
 };

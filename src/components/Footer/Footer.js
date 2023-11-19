@@ -38,10 +38,15 @@ const Footer = () => {
               <strong>Contact</strong>
             </h6>
             <p>
-              <i className="fa fa-envelope mr-3" /> jalanakshat2@gmail.com
+              <i className="fa fa-envelope mr-3" /> &nbsp;jalanakshat2@gmail.com
             </p>
             <p>
-              <i className="fa fa-phone mr-3" /> +91 6377518516
+              <a
+                className="btn-floating btn-sm rgba-white-slight mx-1"
+                href="https://www.linkedin.com/in/akshat-jalan/"
+              >
+                <i className="fab fa-linkedin-in" /> &nbsp;LinkedIn
+              </a>
             </p>
           </MDBCol>
         </MDBRow>

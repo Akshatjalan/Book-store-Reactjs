@@ -24,57 +24,100 @@ export default makeStyles((theme) => ({
     fontSize: 68,
     fontFamily: "Poppins",
     fontWeight: "800",
-    letterSpacing: -1.6,
+    letterSpacing: -3,
     lineHeight: 0.9,
-    wordSpacing: 4,
+    wordSpacing: 8,
     width: 660,
     paddingBottom: 8,
   },
   heroDesc: {
     textAlign: "center",
-    color: "#001524",
+    color: "#455A64",
     fontSize: 24,
     fontFamily: "Raleway",
     paddingBottom: 28,
     width: 584,
   },
+
   contentHeader: {
+    textAlign: "center",
+    color: "#FFF",
+    fontSize: 40,
+    fontFamily: "Poppins",
+    fontWeight: "bolder",
+    paddingTop: theme.spacing(5),
+    backgroundColor: "#001524",
+    margin: "0 !important",
+    letterSpacing: "-.8px",
+    wordSpacing: "4px",
+  },
+
+  contentFeatured: {
+    gap: 15,
+    padding: theme.spacing(5),
+    paddingTop: theme.spacing(6),
+    paddingBottom: theme.spacing(10),
+    backgroundColor: "#001524",
+  },
+
+  carouselSection: {
+    display: "none",
+  },
+
+  buttonSection: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    backgroundColor: "#FFF",
+    gap: 28,
+    paddingBottom: 28,
+  },
+
+  categorySection: {
+    backgroundColor: "#FFF",
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
+
+  categoryName: {
+    fontFamily: "Poppins",
+    color: "#001524",
+    fontSize: 20,
+    fontWeight: 500,
+  },
+
+  categoryButton: {
+    fontFamily: "Poppins",
+    width: 280,
+    height: 280,
+    color: "#FFF",
+    borderRadius: 8,
+    fontSize: 60,
+    border: "none",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    "&:hover": { opacity: 0.8, transition: "ease-in-out .4s" },
+  },
+
+  categoryHeader: {
     textAlign: "center",
     color: "#001524",
     fontSize: 40,
     fontFamily: "Poppins",
     fontWeight: "bolder",
-    paddingTop: theme.spacing(5),
-    backgroundColor: "#EEEEEE",
-    margin: "0 !important",
+    letterSpacing: "-.8px",
+    wordSpacing: "4px",
   },
-  contentFeatured: {
-    gap: 15,
-    padding: theme.spacing(5),
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(7),
-    backgroundColor: "#EEEEEE",
+
+  categoryDesc: {
+    textAlign: "center",
+    color: "#455A64",
+    fontSize: 20,
+    paddingBottom: theme.spacing(2),
+    fontFamily: "Raleway",
   },
-  buttonSection: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#FFF",
-    gap: 20,
-    paddingBottom: 28,
-  },
-  categoryButton: {
-    fontFamily: "Poppins",
-    width: 400,
-    height: 400,
-    color: "#FFF",
-    borderRadius: 8,
-    fontSize: 60,
-    border: "none",
-    opacity: 0.8,
-    backgroundSize: "cover",
-    "&:hover": { opacity: 0.6, transition: "ease-in-out .4s" },
-  },
+
   root: {
     flexGrow: 1,
   },
@@ -86,8 +129,8 @@ export default makeStyles((theme) => ({
     backgroundColor: "white",
     height: "80%",
     width: "60%",
-    padding: "15px",
-    borderRadius: "10px",
+    padding: "12px",
+    borderRadius: "6px",
     border: "1px solid #001524",
   },
   booksHeader: {
@@ -97,10 +140,12 @@ export default makeStyles((theme) => ({
     fontFamily: "Poppins",
     fontWeight: "bolder",
     paddingTop: theme.spacing(10),
+    letterSpacing: "-.8px",
+    wordSpacing: "4px",
   },
   booksDesc: {
     textAlign: "center",
-    color: "#001524",
+    color: "#455A64",
     fontSize: 20,
     paddingBottom: theme.spacing(2),
     fontFamily: "Raleway",
@@ -136,7 +181,7 @@ export default makeStyles((theme) => ({
     },
     heroDesc: {
       textAlign: "center",
-      color: "#001524",
+      color: "#455A64",
       fontSize: 24,
       fontFamily: "Raleway",
       paddingBottom: 28,
@@ -179,20 +224,20 @@ export default makeStyles((theme) => ({
     },
     heroDesc: {
       textAlign: "center",
-      color: "#001524",
-      fontSize: 12,
+      color: "#455A64",
+      fontSize: 14,
       fontFamily: "Raleway",
       paddingBottom: 28,
-      width: 316,
+      width: 320,
     },
     contentHeader: {
-      fontSize: 28,
+      fontSize: 32,
     },
     booksDesc: {
       fontSize: 12,
     },
     booksHeader: {
-      fontSize: 28,
+      fontSize: 32,
     },
     searchs: {
       display: "none",
@@ -234,6 +279,20 @@ export default makeStyles((theme) => ({
       right: 0,
       bottom: 20,
       height: 100,
+    },
+    carouselSection: {
+      display: "block",
+      backgroundColor: "#FFF",
+    },
+    buttonSection: {
+      display: "none",
+    },
+    categoryHeader: {
+      fontSize: 32,
+    },
+
+    categoryDesc: {
+      fontSize: 14,
     },
   },
 }));

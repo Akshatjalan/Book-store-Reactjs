@@ -8,6 +8,10 @@ import scrollImg from "../../assets/scroll.gif";
 import "../ProductView/style.css";
 import { Link } from "react-router-dom";
 import mangaBg from "../../assets/maxresdefault.jpg";
+import bioBg from "../../assets/biography.jpg";
+import fictionBg from "../../assets/fiction.jpg";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 const Products = ({ products, onAddToCart, featureProducts }) => {
   const classes = useStyles();
@@ -55,15 +59,76 @@ const Products = ({ products, onAddToCart, featureProducts }) => {
         </div>
       </div>
 
-      <div className={classes.buttonSection}>
-        <Link to="manga">
-          <button
-            className={classes.categoryButton}
-            style={{ backgroundImage: `url(${mangaBg})` }}
-          >
-            Manga
-          </button>
-        </Link>
+      <div className={classes.categorySection}>
+        <h1 className={classes.categoryHeader}>Categories</h1>
+        <h3 className={classes.categoryDesc}>Browse our featured categories</h3>
+        <div className={classes.buttonSection}>
+          <div>
+            <Link to="manga">
+              <button
+                className={classes.categoryButton}
+                style={{ backgroundImage: `url(${mangaBg})` }}
+              ></button>
+            </Link>
+            <div className={classes.categoryName}>Manga</div>
+          </div>
+          <div>
+            <Link to="manga">
+              <button
+                className={classes.categoryButton}
+                style={{ backgroundImage: `url(${bioBg})` }}
+              ></button>
+            </Link>
+            <div className={classes.categoryName}>Biography</div>
+          </div>
+          <div>
+            <Link to="manga">
+              <button
+                className={classes.categoryButton}
+                style={{ backgroundImage: `url(${fictionBg})` }}
+              ></button>
+            </Link>
+            <div className={classes.categoryName}>Fiction</div>
+          </div>
+        </div>
+      </div>
+
+      <div className={classes.carouselSection}>
+        <Carousel
+          showIndicators={false}
+          autoPlay={true}
+          infiniteLoop={true}
+          showArrows={true}
+          showStatus={false}
+        >
+          <div>
+            <Link to="manga">
+              <button
+                className={classes.categoryButton}
+                style={{ backgroundImage: `url(${mangaBg})` }}
+              ></button>
+            </Link>
+            <div className={classes.categoryName}>Manga</div>
+          </div>
+          <div>
+            <Link to="manga">
+              <button
+                className={classes.categoryButton}
+                style={{ backgroundImage: `url(${bioBg})` }}
+              ></button>
+            </Link>
+            <div className={classes.categoryName}>Biography</div>
+          </div>
+          <div>
+            <Link to="manga">
+              <button
+                className={classes.categoryButton}
+                style={{ backgroundImage: `url(${fictionBg})` }}
+              ></button>
+            </Link>
+            <div className={classes.categoryName}>Fiction</div>
+          </div>
+        </Carousel>
       </div>
 
       {searchTerm === "" && (
