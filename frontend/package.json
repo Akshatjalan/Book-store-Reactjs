@@ -1,0 +1,47 @@
+{
+  "name": "ebook",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@chec/commerce.js": "^2.3.0-beta1",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.11.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^5.0.1",
+    "gh-pages": "^3.2.0",
+    "mdbreact": "^4.6.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.6.1",
+    "react-dom": "^16.13.1",
+    "react-hook-form": "^6.11.5",
+    "react-responsive-carousel": "^3.2.18",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^5.0.1",
+    "react-stripe-elements": "^6.1.2",
+    "semantic-ui-react": "^2.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
