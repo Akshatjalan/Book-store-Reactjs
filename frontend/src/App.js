@@ -114,7 +114,7 @@ const App = () => {
     }
   };
   useEffect(() => {
-    fetchProducts
+    fetchProducts,
     fetchMangaProducts
   },[])
 
