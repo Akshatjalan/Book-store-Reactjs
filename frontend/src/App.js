@@ -32,10 +32,14 @@ const App = () => {
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
   const [path, setPath] = useState(window.location.pathname);
+  
 
   const fetchProducts = async () => {
-    const { data } = await commerce.products.list();
-
+    const res  = await fetch('http://localhost:5000/api/books')
+    const data = await res.json();
+    console.log("malk");
+    console.log("malk");
+    console.log(data);
     setProducts(data);
   };
 
@@ -46,18 +50,26 @@ const App = () => {
   };
 
   const fetchFeatureProducts = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["featured"],
-    });
+    let result = await fetch('http://localhost:5000/api/getUserCategory/66a3ce6d8209037fde1f64ef')
+    console.log("++++++++++++++++mmmmmmmmmmmm----------------------")
+    const category1 = await result.json()
+    const category= category1.category
+     
+    console.log("kaudkausgdkasdgasd",category)
+    let bookFilterMethod= "Between 6 months and 1 Year"
+    const res = await fetch(`http://localhost:5000/api/foryou/Between 6 months and 1 Year/${category}`)
+    console.log("++++++++++++++++")
+    const data = await res.json()
+    console.log("++++++++++++++++")
+    console.log(data)
 
-    setFeatureProducts(data);
-  };
+    setFeatureProducts(data)
+  }
 
   const fetchFictionProducts = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["fiction"],
-    });
+    const res = await fetch('http://localhost:5000/api/foryou')
 
+    const data = await res.json();
     setFictionProducts(data);
   };
 
@@ -118,7 +130,14 @@ const App = () => {
     }
   };
 
+  
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+  
+  useEffect(() =>{
+    fetchProducts(),
+    fetchFeatureProducts()
+  },[]
+  )
 
   return (
     <Router>

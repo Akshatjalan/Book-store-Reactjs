@@ -15,7 +15,10 @@ import { Carousel } from "react-responsive-carousel";
 
 const Products = ({ products, onAddToCart, featureProducts }) => {
   const classes = useStyles();
-
+console.log("abd");
+console.log(products);
+console.log("============================");
+console.log(featureProducts);
   const [searchTerm, setSearchTerm] = useState("");
 
   const sectionRef = useRef(null);
@@ -200,17 +203,6 @@ const Products = ({ products, onAddToCart, featureProducts }) => {
           spacing={2}
         >
           {products
-            .filter((product) => {
-              if (searchTerm === "") {
-                return product;
-              } else if (
-                product.name
-                  .toLowerCase()
-                  .includes(searchTerm.toLocaleLowerCase())
-              ) {
-                return product;
-              }
-            })
             .map((product) => (
               <Grid
                 className={classes.content}

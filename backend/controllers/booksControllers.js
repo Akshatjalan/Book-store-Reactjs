@@ -15,7 +15,7 @@ const getAllBook = async(req,res) => {
     }
 }
 
-const getCatotgory = async(req,res) => {
+const getCategory = async(req,res) => {
     try{
         const catagory = await Book.find().select('catagory')
 
@@ -31,25 +31,29 @@ const getCatotgory = async(req,res) => {
 }
 const forYou = async (req, res) => {
     try {
-        const { bookFilterMethod,category } = req.body;
+        const { bookFilterMethod,category } = req.params;
 
         console.log(bookFilterMethod);
         const currentDate = new Date();
 
         if (bookFilterMethod === "Less Than 6 months") {
-        const sixMonthsAgo = new Date(currentDate);
-        sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
-        console.log("Six months ago:", sixMonthsAgo);
+            const sixMonthsAgo = new Date(currentDate);
+            sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+            console.log("Six months ago:", sixMonthsAgo);
 
-        const lessthan6MonthsBooks = await Book.find({ dateOfLastBuy: { $lt: sixMonthsAgo } });
-
-        // const filter = category? { dateOfLastBuy: { $gte: sixMonthsAgo }, category: category } : { dateOfLastOfBuy: { $gte: sixMonthsAgo } };
-        // const lessthan6MonthsBooks = await Book.find(filter);
-        console.log("Books less than 6 months old:", lessthan6MonthsBooks);
-        res.status(200).json(lessthan6MonthsBooks);
-        } 
-        
-        else if (bookFilterMethod === "Between 6 months and 1 Year") {
+            let lessthan6MonthsBooks = await Book.find({ dateOfLastBuy: { $gte: sixMonthsAgo } });
+            if(category==="0"){
+                console.log("Books less than 6 months old:", lessthan6MonthsBooks);
+                res.status(200).json(lessthan6MonthsBooks);
+            }
+            else{
+            lessthan6MonthsBooks = lessthan6MonthsBooks.filter(book => book.category === category);
+            console.log("Books less than 6 months old:", lessthan6MonthsBooks);
+            res.status(200).json(lessthan6MonthsBooks);
+            }
+            // const filter = category ? { $and: [{ dateOfLastBuy: { $gte: sixMonthsAgo }}, {category: category}] } : { dateOfLastBuy: { $gte: sixMonthsAgo } };
+            // const lessthan6MonthsBooks = await Book.find(filter);
+        }if (bookFilterMethod === "Between 6 months and 1 Year") {
         const oneYearAgo = new Date(currentDate);
         oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
         const sixMonthsAgo = new Date(currentDate);
@@ -58,19 +62,32 @@ const forYou = async (req, res) => {
         console.log("One year ago:", oneYearAgo);
         console.log("Six months ago:", sixMonthsAgo);
 
-        const between6M1YBooks = await Book.find({ $and: [{ dateOfLastBuy: { $gte: sixMonthsAgo } },{ dateOfLastBuy: { $lte: oneYearAgo } }] });
+        let between6M1YBooks = await Book.find({ $and: [{ dateOfLastBuy: { $lte: sixMonthsAgo } },{ dateOfLastBuy: { $gte: oneYearAgo } }] });
+        if(category==="0"){
+            console.log("Books between 6 months and 1 year old:", between6M1YBooks);
+            res.status(200).json(between6M1YBooks);
+        }
+        else{
+            between6M1YBooks = between6M1YBooks.filter(book => book.category === category);
         console.log("Books between 6 months and 1 year old:", between6M1YBooks);
         res.status(200).json(between6M1YBooks);
-        } 
+        }
 
-        else if (bookFilterMethod === "More Than a Year") {
+        }if (bookFilterMethod === "More Than a Year") {
         const oneYearAgo = new Date(currentDate);
         oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
         console.log("One year ago:", oneYearAgo);
 
-        const oldBooks = await Book.find({ dateOfLastBuy: { $lt: oneYearAgo } },);
+        let oldBooks = await Book.find({ dateOfLastBuy: { $lt: oneYearAgo } });
+        if(category==="0"){
+            console.log("Books older than 1 year:", oldBooks);
+            res.status(200).json(oldBooks);
+        }
+        else{
+        oldBooks = oldBooks.filter(book => book.category === category);
         console.log("Books older than 1 year:", oldBooks);
         res.status(200).json(oldBooks);
+        }
         }
         } catch (error) {
         res.status(500).json({ message: error.message });
@@ -78,10 +95,18 @@ const forYou = async (req, res) => {
 };
 
 
+// const setForYou = async (req, res) => {
+//  try{
+//     const { userIds , bookIds , offer , category } = req.body
+    
+//  } catch{
+//     res.status(500).json({ message: error.message });
+//  }
 
+// }
 
 module.exports = {
     getAllBook,
-    getCatotgory,
+    getCategory,
     forYou
 }

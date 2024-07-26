@@ -5,9 +5,9 @@ const booksSchema = mongoose.Schema({
         type : String,
         required: true
     },
-    category : [{
+    category : {
         type : String
-    }],
+    },
     description: {
         type: String
     },
