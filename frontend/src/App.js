@@ -31,8 +31,11 @@ const App = () => {
   const [path, setPath] = useState(window.location.pathname);
 
   const fetchProducts = async () => {
-    const { data } = await commerce.products.list();
-
+    const res  = await fetch('http://localhost:5000/api/books')
+    const data = await res.json();
+    console.log("malk");
+    console.log("malk");
+    console.log(data);
     setProducts(data);
   };
 
@@ -43,18 +46,27 @@ const App = () => {
   };
 
   const fetchFeatureProducts = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["featured"],
-    });
-
-    setFeatureProducts(data);
-  };
+    const category = await fetch('http://localhost:5000/api/getusercategory/:12456')
+  
+    const res = await fetch('http://localhost:5000/api/books', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+      "bookFilterMetho": "less Than 6 months",
+      "categor": category // replace with your actual value
+      })
+    })
+  
+    const data = await res.json()
+    setFeatureProducts(data)
+  }
 
   const fetchFictionProducts = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["fiction"],
-    });
+    const res = await fetch('http://localhost:5000/api/foryou')
 
+    const data = await res.json();
     setFictionProducts(data);
   };
 
@@ -115,7 +127,14 @@ const App = () => {
     }
   };
 
+  
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+  
+  useEffect(() =>{
+    fetchProducts()
+    fetchFeatureProducts()
+  },[]
+  )
 
   return (
     <Router>
