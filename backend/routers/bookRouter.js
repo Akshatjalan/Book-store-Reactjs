@@ -7,3 +7,4 @@ router.get('/category', bookController.getCategory)
 router.get('/foryou/:bookFilterMethod/:category',bookController.forYou)
 
 module.exports = router
+
