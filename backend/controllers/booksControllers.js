@@ -15,7 +15,7 @@ const getAllBook = async(req,res) => {
     }
 }
 
-const getCatotgory = async(req,res) => {
+const getCategory = async(req,res) => {
     try{
         const catagory = await Book.find().select('catagory')
 
@@ -95,10 +95,18 @@ const forYou = async (req, res) => {
 };
 
 
+// const setForYou = async (req, res) => {
+//  try{
+//     const { userIds , bookIds , offer , category } = req.body
+    
+//  } catch{
+//     res.status(500).json({ message: error.message });
+//  }
 
+// }
 
 module.exports = {
     getAllBook,
-    getCatotgory,
+    getCategory,
     forYou
 }
