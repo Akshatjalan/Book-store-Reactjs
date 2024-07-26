@@ -16,12 +16,12 @@ const Product = ({ product, onAddToCart }) => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
-      <Link to={`product-view/${product.id}`}>
+      <Link to={`product-view/${product._id}`}>
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image={product.media.source}
-            title={product.name}
+            // image={product.media.source}
+            title={product.bookName}
           />
         </CardActionArea>
       </Link>

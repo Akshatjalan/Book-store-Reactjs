@@ -19,7 +19,7 @@ import Biography from "./components/Bio/Biography";
 import Admin from "./components/Admin/Admin";
 
 const App = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
   const [products, setProducts] = useState([]);
   const [mangaProducts, setMangaProducts] = useState([]);
   const [fictionProducts, setFictionProducts] = useState([]);
@@ -29,12 +29,17 @@ const App = () => {
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
   const [path, setPath] = useState(window.location.pathname);
+  
 
-  const fetchProducts =  async () => {
-    const { data } = await fetch('http://localhost:5000/api/books')
-    console.log( "malk");
+  const fetchProducts = async () => {
+    const res  = await fetch('http://localhost:5000/api/books')
+    const data = await res.json();
+    console.log("malk");
+    console.log("malk");
+    console.log(data);
     setProducts(data);
   };
+
   const fetchMangaProducts = async () => {
     const { data } = await fetch('http://localhost:5000/api/books')
 
@@ -42,18 +47,24 @@ const App = () => {
   };
 
   const fetchFeatureProducts = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["featured"],
-    });
+    let category = await fetch('http://localhost:5000/api/getUserCategory/66a3ce6d8209037fde1f64ef')
+    console.log("++++++++++++++++mmmmmmmmmmmm----------------------")
+     category = await category.json()
+    console.log("kaudkausgdkasdgasd",category)
+    let bookFilterMethod= "Between 6 months and 1 Year"
+    const res = await fetch(`http://localhost:5000/api/foryou/${bookFilterMethod}/${category}`)
+    console.log("++++++++++++++++")
+    const data = await res.json()
+    console.log("++++++++++++++++")
+    console.log(data)
 
-    setFeatureProducts(data);
-  };
+    setFeatureProducts(data)
+  }
 
   const fetchFictionProducts = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["fiction"],
-    });
+    const res = await fetch('http://localhost:5000/api/foryou')
 
+    const data = await res.json();
     setFictionProducts(data);
   };
 
@@ -113,12 +124,15 @@ const App = () => {
       setErrorMessage(error.data.error.message);
     }
   };
-  useEffect(() => {
-    fetchProducts,
-    fetchMangaProducts
-  },[])
 
+  
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+  
+  useEffect(() =>{
+    fetchProducts(),
+    fetchFeatureProducts()
+  },[]
+  )
 
   return (
     <Router>
