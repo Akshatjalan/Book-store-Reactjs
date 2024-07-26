@@ -16,6 +16,7 @@ import loadingImg from "./assets/loader.gif";
 import "./style.css";
 import Fiction from "./components/Fiction/Fiction";
 import Biography from "./components/Bio/Biography";
+import Admin from "./components/Admin/Admin";
 
 const App = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -27,6 +28,7 @@ const App = () => {
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
+  const [path, setPath] = useState(window.location.pathname);
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
@@ -35,9 +37,7 @@ const App = () => {
   };
 
   const fetchMangaProducts = async () => {
-    const { data } = await commerce.products.list({
-      category_slug: ["manga"],
-    });
+    const { data } = await fetch('http://localhost:5000/api/books')
 
     setMangaProducts(data);
   };
@@ -115,89 +115,76 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    fetchProducts();
-    fetchFeatureProducts();
-    fetchCart();
-    fetchMangaProducts();
-    fetchFictionProducts();
-    fetchBioProducts();
-  }, []);
-
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   return (
-    <div>
-      {products.length > 0 ? (
-        <>
-          <Router>
-            <div style={{ display: "flex" }}>
-              <CssBaseline />
-              <Navbar
-                totalItems={cart.total_items}
-                handleDrawerToggle={handleDrawerToggle}
-              />
-              <Switch>
-                <Route exact path="/">
-                  <Products 
-                    products={products}
-                    featureProducts={featureProducts}
-                    onAddToCart={handleAddToCart}
-                    handleUpdateCartQty
-                  />
-                </Route>
-                <Route exact path="/cart">
-                  <Cart
-                    cart={cart}
-                    onUpdateCartQty={handleUpdateCartQty}
-                    onRemoveFromCart={handleRemoveFromCart}
-                    onEmptyCart={handleEmptyCart}
-                  />
-                </Route>
-                <Route path="/checkout" exact>
-                  <Checkout
-                    cart={cart}
-                    order={order}
-                    onCaptureCheckout={handleCaptureCheckout}
-                    error={errorMessage}
-                  />
-                </Route>
-                <Route path="/product-view/:id" exact>
-                  <ProductView />
-                </Route>
-                <Route path="/manga" exact>
-                  <Manga
-                    mangaProducts={mangaProducts}
-                    onAddToCart={handleAddToCart}
-                    handleUpdateCartQty
-                  />
-                </Route>
-                <Route path="/fiction" exact>
-                  <Fiction
-                    fictionProducts={fictionProducts}
-                    onAddToCart={handleAddToCart}
-                    handleUpdateCartQty
-                  />
-                </Route>
-                <Route path="/biography" exact>
-                  <Biography
-                    bioProducts={bioProducts}
-                    onAddToCart={handleAddToCart}
-                    handleUpdateCartQty
-                  />
-                </Route>
-              </Switch>
-            </div>
-          </Router>
-          <Footer />
-        </>
+    <Router>
+      {path === "/admin/66a29a5bcb2c9afdc7083bc7" ? (
+        <Route path="/admin/66a29a5bcb2c9afdc7083bc7">
+          <Admin />
+        </Route>
       ) : (
-        <div className="loader">
-          <img src={loadingImg} alt="Loading" />
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default App;
+        <Switch>
+          <div>
+            <CssBaseline />
+            <Navbar
+              totalItems={cart.total_items}
+              handleDrawerToggle={handleDrawerToggle}
+            />
+            <Route exact path="/">
+              <Products
+                products={products}
+                featureProducts={featureProducts}
+                onAddToCart={handleAddToCart}
+                handleUpdateCartQty
+              />
+            </Route>
+            <Route exact path="/cart">
+              <Cart
+                cart={cart}
+                onUpdateCartQty={handleUpdateCartQty}
+                onRemoveFromCart={handleRemoveFromCart}
+                onEmptyCart={handleEmptyCart}
+              />
+            </Route>
+            <Route path="/checkout" exact>
+              <Checkout
+                cart={cart}
+                order={order}
+                onCaptureCheckout={handleCaptureCheckout}
+                error={errorMessage}
+                />
+              </Route>
+              <Route path="/product-view/:id" exact>
+                <ProductView />
+              </Route>
+              <Route path="/manga" exact>
+                <Manga
+                  mangaProducts={mangaProducts}
+                  onAddToCart={handleAddToCart}
+                  handleUpdateCartQty
+                />
+              </Route>
+              <Route path="/fiction" exact>
+                <Fiction
+                  fictionProducts={fictionProducts}
+                  onAddToCart={handleAddToCart}
+                  handleUpdateCartQty
+                />
+              </Route>
+              <Route path="/biography" exact>
+                <Biography
+                  bioProducts={bioProducts}
+                  onAddToCart={handleAddToCart}
+                  handleUpdateCartQty
+                />
+              </Route>
+            <Footer />
+            </div>
+          </Switch>
+        )}
+      </Router>
+    );
+  };
+  
+  export default App;
