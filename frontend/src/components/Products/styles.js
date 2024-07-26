@@ -163,6 +163,11 @@ export default makeStyles((theme) => ({
     bottom: 40,
     height: 100,
   },
+  "@media (min-width: 100px) and (max-width: 850px)": {
+    scrollImg: {
+      display: "none"
+    }
+  },
   mobileSearch: {
     display: "none",
   },

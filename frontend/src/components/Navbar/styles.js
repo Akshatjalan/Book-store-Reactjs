@@ -14,7 +14,7 @@ export default makeStyles((theme) => ({
     },
   },
   title: {
-    flexGrow: 1,
+    
     alignItems: "center",
     display: "flex",
     fontFamily: "Raleway",

@@ -2,6 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(() => ({
   root: {
+    borderRadius:"20px",
     maxWidth: "100%",
     background: "linear-gradient(45deg, #D9D9D9 30%, #E6E6E6 90%)",
   },
@@ -26,6 +27,7 @@ export default makeStyles(() => ({
     color: "white",
     width: "100%",
     height: "40px",
+    borderRadius: "15px",
 
     "&:hover": {
       backgroundColor: "#2a344a",

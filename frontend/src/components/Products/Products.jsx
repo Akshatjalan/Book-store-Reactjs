@@ -30,7 +30,7 @@ const Products = ({ products, onAddToCart, featureProducts }) => {
       <div className={classes.toolbar} />
       <img src={scrollImg} className={classes.scrollImg} />
       <div className={classes.hero}>
-        <img className={classes.heroImg} src={logo1} height="720px" />
+        <img className={classes.heroImg} style={{ marginTop:'150px' }} src={logo1} height="720px" />
 
         <div className={classes.heroCont}>
           <h1 className={classes.heroHeader}>
@@ -60,7 +60,7 @@ const Products = ({ products, onAddToCart, featureProducts }) => {
       </div>
 
       {searchTerm === "" && (
-        <div className={classes.categorySection}>
+        <div id="Categories" className={classes.categorySection}>
           <h1 className={classes.categoryHeader}>Categories</h1>
           <h3 className={classes.categoryDesc}>
             Browse our featured categories
@@ -137,7 +137,7 @@ const Products = ({ products, onAddToCart, featureProducts }) => {
 
       {searchTerm === "" && (
         <>
-          <div>
+          <div id="Best Sellers">
             <h3 className={classes.contentHeader}>
               Best <span style={{ color: "#f1361d" }}>Sellers</span>
             </h3>
@@ -168,7 +168,7 @@ const Products = ({ products, onAddToCart, featureProducts }) => {
       <div>
         {searchTerm === "" && (
           <>
-            <h1 className={classes.booksHeader}>
+            <h1 className={classes.booksHeader} id="Discover Books">
               Discover <span style={{ color: "#f1361d" }}>Books</span>
             </h1>
             <h3 className={classes.booksDesc}>
