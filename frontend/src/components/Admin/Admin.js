@@ -1,5 +1,7 @@
+import Dashboard from "./Dashboard";
+
 export default function Admin(){
     return (
-        <h1>Admin Page</h1>
+        <Dashboard />
     )
 }

@@ -12,11 +12,14 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import loadingImg from "./assets/loader.gif";
+// import loadingImg from "./assets/loader.gif";
 import "./style.css";
 import Fiction from "./components/Fiction/Fiction";
 import Biography from "./components/Bio/Biography";
 import Admin from "./components/Admin/Admin";
+import Contact from "./components/Contact/Contact";
+import Slider from "./components/Slider/Slider";
+
 
 const App = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -179,9 +182,12 @@ const App = () => {
                   handleUpdateCartQty
                 />
               </Route>
+              <Slider />
+              <Contact/>
             <Footer />
             </div>
           </Switch>
+         
         )}
       </Router>
     );

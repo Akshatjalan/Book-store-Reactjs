@@ -41,7 +41,7 @@ const Navbar = ({ totalItems }) => {
             className={classes.title}
             color="inherit"
           >
-            <img
+            <img 
               src={logo}
               alt="Book Store App"
               height="50px"
