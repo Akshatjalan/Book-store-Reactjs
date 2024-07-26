@@ -19,7 +19,7 @@ import Biography from "./components/Bio/Biography";
 import Admin from "./components/Admin/Admin";
 
 const App = () => {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [products, setProducts] = useState([]);
   const [mangaProducts, setMangaProducts] = useState([]);
   const [fictionProducts, setFictionProducts] = useState([]);
@@ -30,12 +30,11 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [path, setPath] = useState(window.location.pathname);
 
-  const fetchProducts = async () => {
-    const { data } = await commerce.products.list();
-
+  const fetchProducts =  async () => {
+    const { data } = await fetch('http://localhost:5000/api/books')
+    console.log( "malk");
     setProducts(data);
   };
-
   const fetchMangaProducts = async () => {
     const { data } = await fetch('http://localhost:5000/api/books')
 
@@ -114,6 +113,10 @@ const App = () => {
       setErrorMessage(error.data.error.message);
     }
   };
+  useEffect(() => {
+    fetchProducts
+    fetchMangaProducts
+  },[])
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
