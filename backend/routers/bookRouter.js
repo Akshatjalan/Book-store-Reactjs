@@ -7,3 +7,4 @@ router.get('/catagory', bookController.getCatotgory)
 router.get('/foryou',bookController.forYou)
 
 module.exports = router
+
