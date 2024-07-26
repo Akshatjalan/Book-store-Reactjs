@@ -31,7 +31,7 @@ const getCategory = async(req,res) => {
 }
 const forYou = async (req, res) => {
     try {
-        const { bookFilterMethod,category } = req.body;
+        const { bookFilterMethod,category } = req.params;
 
         console.log(bookFilterMethod);
         const currentDate = new Date();

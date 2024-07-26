@@ -4,6 +4,6 @@ const bookController = require('../controllers/booksControllers')
 
 router.get('/books',bookController.getAllBook)
 router.get('/category', bookController.getCategory)
-router.get('/foryou',bookController.forYou)
+router.get('/foryou/:bookFilterMethod/:category',bookController.forYou)
 
 module.exports = router

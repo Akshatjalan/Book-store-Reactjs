@@ -9,22 +9,22 @@ const getAllUsers = async (req,res) => {
     }
 }
 const getUserCategory = async (req, res) => {
-    try {
-      const id = req.params.id;
-      const user = await User.findById(id);
-      if (!user) {
-        return res.status(404).json({ message: "User not found" });
-      }
-  
-      const priceSpentOnCategory = user.priceSpentOnCatagory;
-      const maxSpentCategory = Object.keys(priceSpentOnCategory).reduce((a, b) => {
-        return priceSpentOnCategory[a] > priceSpentOnCategory[b] ? a : b;
-      });
-  
-      return res.json({ category: maxSpentCategory });
-    } catch (error) {
-      res.status(500).json({ message: error.message });
+  try {
+    const id = req.params.userId;
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
     }
+
+    const priceSpentOnCategory = user.priceSpentOnCatagory;
+    const maxSpentCategory = [...priceSpentOnCategory.entries()].reduce((a, b) => {
+      return b[1] > a[1] ? b : a;
+    });
+
+    return res.json({ category: maxSpentCategory[0] });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 }
 
 module.exports = {

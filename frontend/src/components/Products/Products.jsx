@@ -17,6 +17,8 @@ const Products = ({ products, onAddToCart, featureProducts }) => {
   const classes = useStyles();
 console.log("abd");
 console.log(products);
+console.log("============================");
+console.log(featureProducts);
   const [searchTerm, setSearchTerm] = useState("");
 
   const sectionRef = useRef(null);
