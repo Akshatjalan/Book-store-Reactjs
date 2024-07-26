@@ -5,7 +5,7 @@ const booksSchema = mongoose.Schema({
         type : String,
         required: true
     },
-    catagory : [{
+    category : [{
         type : String
     }],
     description: {
@@ -22,7 +22,7 @@ const booksSchema = mongoose.Schema({
     priceSpentOnBook:{
         type: Number,
     },
-    dateOfLastOfBuy:{
+    dateOfLastBuy:{
         type: Date
     }
 })
