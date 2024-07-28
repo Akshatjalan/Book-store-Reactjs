@@ -12,7 +12,8 @@ import { AddShoppingCart } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import useStyles from "./styles";
 
-const Product = ({ product, onAddToCart }) => {
+
+const Product = ({ product, onAddToCart,image }) => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -20,18 +21,18 @@ const Product = ({ product, onAddToCart }) => {
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            // image={product.media.source}
+            image={image}
             title={product.bookName}
           />
         </CardActionArea>
       </Link>
       <CardContent>
         <div className={classes.cardContent}>
-          <p className={classes.cardContentName}> {product.name}</p>
+          <p className={classes.cardContentName}> {product.bookName}</p>
         </div>
         <div className={classes.cardContent}>
           <p className={classes.cardContentPrice}>
-            <b>{product.price.formatted_with_symbol}</b>
+            <b>${product.price}</b>
           </p>
         </div>
       </CardContent>

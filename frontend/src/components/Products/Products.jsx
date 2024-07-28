@@ -12,8 +12,17 @@ import bioBg from "../../assets/biography.jpg";
 import fictionBg from "../../assets/fiction.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-
+import Contact from "../../components/Contact/Contact";
+import Slider from "../../components/Slider/Slider";
+import p1 from './../../assets/book1.png'
+import p2 from './../../assets/book2.png'
+import p3 from './../../assets/book3.png'
+import p4 from './../../assets/book4.png'
+import p5 from './../../assets/book5.png'
+import p6 from './../../assets/book6.png'
+import p7 from './../../assets/p111.png'
 const Products = ({ products, onAddToCart, featureProducts }) => {
+  const images = [p1,p2,p3,p4,p5,p6]
   const classes = useStyles();
 console.log("abd");
 console.log(products);
@@ -30,7 +39,7 @@ console.log(featureProducts);
 
   return (
     <main className={classes.mainPage}>
-      <div className={classes.toolbar} />
+      <div className={classes.toolbar} id="first" />
       <img src={scrollImg} className={classes.scrollImg} />
       <div className={classes.hero}>
         <img className={classes.heroImg} style={{ marginTop:'150px' }} src={logo1} height="720px" />
@@ -142,16 +151,16 @@ console.log(featureProducts);
         <>
           <div id="Best Sellers">
             <h3 className={classes.contentHeader}>
-              Best <span style={{ color: "#f1361d" }}>Sellers</span>
+              For <span style={{ color: "#f1361d" }}>You</span>
             </h3>
-            <Grid
+            <Grid style={{ backgroundImage: `url(${p7}) `}}
               className={classes.contentFeatured}
               container
               justify="center"
               spacing={1}
             >
-              {featureProducts.map((product) => (
-                <Grid
+              {featureProducts.map((product,index) => (
+                <Grid 
                   className={classes.contentFeatured}
                   item
                   xs={6}
@@ -160,7 +169,7 @@ console.log(featureProducts);
                   lg={2}
                   id="pro"
                 >
-                  <Product product={product} onAddToCart={onAddToCart} />
+                  <Product image={images[index]}product={product} onAddToCart={onAddToCart} />
                 </Grid>
               ))}
             </Grid>
@@ -179,23 +188,7 @@ console.log(featureProducts);
             </h3>
           </>
         )}
-        <div className={classes.mobileSearch}>
-          <div className={classes.mobSearchs}>
-            <Input
-              className={classes.mobSearchb}
-              type="text"
-              placeholder="Search for books"
-              onChange={(event) => {
-                setSearchTerm(event.target.value);
-              }}
-              startAdornment={
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              }
-            />
-          </div>
-        </div>
+        
         <Grid
           className={classes.content}
           container
@@ -203,7 +196,7 @@ console.log(featureProducts);
           spacing={2}
         >
           {products
-            .map((product) => (
+            .map((product,index) => (
               <Grid
                 className={classes.content}
                 item
@@ -213,11 +206,31 @@ console.log(featureProducts);
                 lg={3}
                 id="pro"
               >
-                <Product product={product} onAddToCart={onAddToCart} />
+                <Product image={images[index]} product={product} onAddToCart={onAddToCart} />
               </Grid>
             ))}
         </Grid>
       </div>
+      
+      
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+              <Contact/>
     </main>
   );
 };

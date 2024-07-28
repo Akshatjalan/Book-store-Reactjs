@@ -201,8 +201,7 @@ const App = () => {
                   handleUpdateCartQty
                 />
               </Route>
-              <Slider />
-              <Contact/>
+              
             <Footer />
             </div>
           </Switch>

@@ -20,14 +20,14 @@ function Contact() {
 					<textarea placeholder="Message*" className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
 				</div>
 				<div className="my-2 w-1/2 lg:w-1/4">
-					<button className="uppercase text-sm font-bold tracking-wide bg-blue-900 text-gray-100 p-3 rounded-lg w-full 
+					<button className="uppercase text-sm font-bold tracking-wide bg-[#1c2331] text-gray-100 p-3 rounded-lg w-full 
                       focus:outline-none focus:shadow-outline">
             Send Message
           </button>
 				</div>
 			</div>
 			<div
-				className="w-full lg:mt-[-27rem] lg:w-2/6 px-8  ml-auto bg-blue-900 rounded-2xl">
+				className="w-full lg:mt-[-27rem] lg:w-2/6 px-8  ml-auto bg-[#1c2331] rounded-2xl">
 				<div className="flex flex-col text-white">
 					<h1 className="font-bold uppercase text-4xl my-4">Drop in our office</h1>
 					<p className="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam

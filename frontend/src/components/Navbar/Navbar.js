@@ -46,16 +46,17 @@ const Navbar = ({ totalItems }) => {
               alt="Book Store App"
               height="50px"
               className={classes.image}
+            
             />
-            <div>BOOK-Y </div>
+            <div><a href="#first" onClick={() => handleLinkClick("first")}>BOOK-Y</a> </div>
           </Typography>
 
           <Hidden smDown>
             <div style={{ display: "flex" }}>
               <a href="#Categories" className="nav" style={{ marginLeft: "70px" }} onClick={() => handleLinkClick("Categories")}> Categories </a>
-              <a href="#Best Sellers" className="nav" onClick={() => handleLinkClick("Best Sellers")}> Best Sellers </a>
+              <a href="#Best Sellers" className="nav" onClick={() => handleLinkClick("Best Sellers")}> For You </a>
               <a href="#Discover Books" className="nav" onClick={() => handleLinkClick("Discover Books")}> Discover Books </a>
-              <a href="#Contatc Us" className="nav" onClick={() => handleLinkClick("Contatc Us")}> Contatc Us </a>
+              <a href="#Contatc Us" className="nav" onClick={() => handleLinkClick("Contatc Us")}> Contact Us </a>
             </div>
           </Hidden>
           <div className={classes.grow} />

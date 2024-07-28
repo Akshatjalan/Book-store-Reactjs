@@ -9,7 +9,7 @@ const Footer = () => {
         <MDBRow className="text-center text-md-left mt-3 pb-3">
           <MDBCol md="3" lg="3" xl="4" className="mx-auto mt-3">
             <h6 className="text-uppercase mb-4 font-weight-bold" id="Contatc Us">
-              <img src={logo} alt="Book Store App" height="50px" />
+              <img src={logo} alt="Book Store App" style={{height:"50px" , margin:"auto"}} />
               <strong>BookY</strong>
             </h6>
             <p>

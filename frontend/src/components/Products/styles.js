@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-
+import p from '../../assets/p111.png'
 export default makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   mainPage: { flexGrow: 1, overflowX: "hidden", overflowY: "hidden" },
@@ -46,7 +46,7 @@ export default makeStyles((theme) => ({
     fontFamily: "Poppins",
     fontWeight: "bolder",
     paddingTop: theme.spacing(5),
-    backgroundColor: "#001524",
+    backgroundColor: "#15192A",
     margin: "0 !important",
     letterSpacing: "-.8px",
     wordSpacing: "4px",
@@ -54,10 +54,10 @@ export default makeStyles((theme) => ({
 
   contentFeatured: {
     gap: 15,
-    padding: theme.spacing(5),
+    padding: theme.spacing(-10),
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(10),
-    backgroundColor: "#001524",
+   
   },
   categoryFeatured: {
     gap: 15,
