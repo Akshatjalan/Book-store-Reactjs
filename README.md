@@ -1,6 +1,6 @@
 <img src="./src/assets/circles.png" height="250px" align="right"/>
 
-<h1 align="center">BOOK Ecommerce STORE USING REACTJS </h1>
+<h2 align="center">BOOK Ecommerce STORE USING REACTJS </h2>
 
 
 # BOOK Shop Description
