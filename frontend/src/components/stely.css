@@ -1,0 +1,12 @@
+.nav{
+    /* display: inline-block; */
+    margin-left: 30px;
+    text-decoration: none;
+    color:aliceblue;
+    font-size: 22px;
+}
+.nav:hover{
+    /* display: inline-block; */
+    
+    color:rgb(114, 178, 235)
+}
