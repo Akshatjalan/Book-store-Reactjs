@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import { InputLabel, Select, MenuItem, Button, Grid, Typography } from '@material-ui/core';
 import { useForm, FormProvider } from 'react-hook-form';
 import { Link } from 'react-router-dom';
@@ -6,34 +6,90 @@ import { Link } from 'react-router-dom';
 import { commerce } from '../../lib/commerce';
 import FormInput from './CustomTextField';
 
+const initialState = {
+  shippingCountries: [],
+  shippingCountry: '',
+  shippingSubdivisions: [],
+  shippingSubdivision: '',
+  shippingOptions: [],
+  shippingOption: ''
+}
+
+const reducer = (state, action) => {
+  switch(action.type) {
+    case "setShippingCountries": 
+      return {
+        ...state,
+        shippingCountries: action.payload
+      }
+
+    case "setShippingCountry": 
+      return {
+        ...state,
+        shippingCountry: action.payload
+      }
+
+    case "setShippingSubdivisions":
+      return {
+        ...state,
+        shippingSubdivisions: action.payload
+      }
+
+    case "setShippingSubdivision":
+      return {
+        ...state,
+        shippingSubdivision: action.payload
+      }
+
+    case "setShippingOptions": 
+      return {
+        ...state,
+        shippingOptions: action.payload
+      }
+
+    case "setShippingOption": 
+      return {
+        ...state,
+        shippingOption: action.payload
+      }
+      
+    default: 
+      return state;
+  }
+}
+
 const AddressForm = ({ checkoutToken, test }) => {
-  const [shippingCountries, setShippingCountries] = useState([]);
-  const [shippingCountry, setShippingCountry] = useState('');
-  const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
-  const [shippingSubdivision, setShippingSubdivision] = useState('');
-  const [shippingOptions, setShippingOptions] = useState([]);
-  const [shippingOption, setShippingOption] = useState('');
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const {shippingCountries, shippingCountry, shippingSubdivisions, shippingSubdivision, shippingOptions, shippingOption} = state;
+
+  // const [shippingCountries, setShippingCountries] = useState([]);
+  // const [shippingCountry, setShippingCountry] = useState('');
+  // const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
+  // const [shippingSubdivision, setShippingSubdivision] = useState('');
+  // const [shippingOptions, setShippingOptions] = useState([]);
+  // const [shippingOption, setShippingOption] = useState('');
+
   const methods = useForm();
 
   const fetchShippingCountries = async (checkoutTokenId) => {
     const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
 
-    setShippingCountries(countries);
-    setShippingCountry(Object.keys(countries)[0]);
+    dispatch({type: "setShippingCountries", payload: countries});
+    dispatch({type: "setShippingCountry", payload: Object.keys(countries)[0]});
   };
 
   const fetchSubdivisions = async (countryCode) => {
     const { subdivisions } = await commerce.services.localeListSubdivisions(countryCode);
-
-    setShippingSubdivisions(subdivisions);
-    setShippingSubdivision(Object.keys(subdivisions)[0]);
+    
+    dispatch({type: "setShippingSubdivisions", payload: subdivisions});
+    dispatch({type: "setShippingSubdivision", payload: Object.keys(subdivisions)[0]});
   };
 
   const fetchShippingOptions = async (checkoutTokenId, country, stateProvince = null) => {
     const options = await commerce.checkout.getShippingOptions(checkoutTokenId, { country, region: stateProvince });
-
-    setShippingOptions(options);
-    setShippingOption(options[0].id);
+    
+    dispatch({type: "setShippingOptions", payload: options});
+    dispatch({type: "setShippingOption", payload: options[0].id});
   };
 
   useEffect(() => {
