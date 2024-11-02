@@ -1,5 +1,3 @@
-<img src="./src/assets/circles.png" height="250px" align="right"/>
-
 <h1 align="center">BOOK Ecommerce STORE USING REACTJS </h1>
 
 
@@ -8,8 +6,6 @@
     Through this book store the users can search for a book by its title and
     later can add to the shopping cart and finally purchase using credit card transaction.
     
- ##   [Live App Demo](https://akshatbookstore.netlify.app/)
- 
  
  ![Alt text](https://github.com/Akshatjalan/Book-store-Reactjs/blob/main/src/assets/Web.jpg?raw=true "Main Page")
 
