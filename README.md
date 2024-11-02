@@ -14,7 +14,7 @@
 - Build with `ReactJS`, `Javascript`, `HTML`, `CSS`.
 - `CommerceJS` provides Backend eCommerce APIs for any frontend framework
 - `Stripe` is used as a suite of payment APIs that powers commerce and provides temporary credit card for payment.
-- https://commercejs.com/docs/guides/products-react/ Documentation of CommerceJS to fetch APIs
+- Check out Documentation of CommerceJS to fetch APIs
 - https://stripe.com/docs/stripe-js/react Documentation to connect Stripe with React components for Stripe.js and Stripe Elements
 
 
